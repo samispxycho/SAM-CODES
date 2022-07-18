@@ -1,248 +1,202 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-typedef struct treetype
+typedef struct tree
 {
-    struct treetype *left;
     int data;
-    struct treetype * right;
-    
-}tree;
+    struct tree *right;
+    struct tree *left;
+}node;
+//*********************************
 
-tree * memory()
+node * insert(node* root,int x)
 {
-    tree * p=(tree*) malloc(sizeof(tree));
-    p->left=NULL;
-    p->right=NULL;
-    return p;
-
-}
-tree * create(tree * root,int num)
-{
-    tree *p;
     if(root==NULL)
     {
-        p=memory();
-        p->data=num;
-        root =p;
-        return (root);
-        
+        node *p;
+        p=(node *)malloc(sizeof(node));
+        p->data=x;
+        p->left=0;
+        p->right=0;
+        root=p;
+        return root;
     }
-    else if(root->data>num)
-    {
-        root->left=create(root->left,num);
+    else if(root->data>x)
+        root->left=insert(root->left,x);
+    else if(root->data<x)
+        root->right=insert(root->right,x);
+    else
+        printf("\n\nPLEASE ENTER THE VALID VALUE...!!\n\n");
 
-    }
-    else if(root->data<num)
-    {
-        root->right=create(root->right,num);
-
-    }
-    else 
-    {
-        printf("Invalid data");
-    }
     return root;
-}
 
-void pre_order(tree * root)
-{
-    if (root!=0)
-    {
-        printf("%d ", root->data);
-        pre_order(root->left);
-        pre_order(root->right);
-    }
-}
 
-void in_order(tree * root)
+}
+//*********************************
+void  preorder(node *root)
 {
-    if (root!=NULL)
+    if(root!=NULL)
     {
-        in_order(root->left);
         printf("%d ",root->data);
-        in_order(root->right);
+        preorder(root->left);
+        preorder(root->right);
     }
 }
-void post_order(tree * root)
+//**********************************
+
+void  inorder(node *root)
 {
-    if (root!=0)
+    if(root!=NULL)
     {
-        post_order(root->left);
-        post_order(root->right);
+        inorder(root->left);
+        printf("%d ",root->data);
+        inorder(root->right);
+    }
+}
+//***********************************
+void  postorder(node *root)
+{
+    if(root!=NULL)
+    {
+        postorder(root->left);
+        postorder(root->right);
         printf("%d ",root->data);
     }
 }
-void count(tree * root,int *p)
+//**********************************
+
+void count(node *root,int *c)
 {
-    if (root!=0)
+    if(root!=0)
     {
-        (*p)++;
-        count(root->left,p);
-        count(root->right,p);
-        
+        (*c)++;
+        count(root->left,c);
+        count(root->right,c);
     }
 }
-void count_leaf(tree * root,int * p)
-{
-    if (root!=0)
-    {
-        if (root->left==NULL && root->right==NULL)
-        (*p)++;
-        count_leaf(root->left,p);
-        count_leaf(root->right,p);
-        
-    }
-}
-void get_max(tree * root,int * max)
-{
-    
-    if (root!=0)
-    {
-        if (root->data>(*max))
-        {
-            (*max)=root->data;
-        }
-        get_max(root->right,max);
-    }
-    
-}
-void get_min(tree *root,int * min)
-{
-    if (root!=0)
-    {
-        if (root->data<(*min))
-        {
-            (*min)=root->data;
-        }
-        get_min(root->left,min);
-    }
-}
-void left_node(tree *root,int *x)
-{
-    if (root!=0)
-    {
-        (*x)++;
-        count(root->left,x);
-        count(root->right,x);
-        
-    }
-}
-void right_node(tree *root,int *z)
-{
-    if (root!=0)
-    {
-        (*z)++;
-        count(root->left,z);
-        count(root->right,z);
-        
-    }
-}
+//************************************
+ void l_s(node *root)
+ {
+     node *p=root;
+
+     while(root->right!=0)
+        root=root->right;
+     printf("\n\nTHE LARGEST NODE IN THE TREE IS:%d\n\n",root->data);
+
+    root=p;
+
+     while(root->left!=0)
+        root=root->left;
+     printf("\n\nTHE SMALLEST NODE IN THE TREE IS:%d\n\n",root->data);
+
+ }
+
+//******************************************
+ void count_leaf(node * root,int *cnt)
+ {
+     if(root)
+     {
+         if(root->left==NULL&&root->right==NULL)
+            (*cnt)++;
+         else
+         {
+             if(root->left)
+             count_leaf(root->left,cnt);
+             if(root->right)
+             count_leaf(root->right,cnt);
+         }
+     }
+ }
+//*******************************************
 void main()
 {
-    tree * root=NULL;
-    int max=0,min=0;
-    int num,c=0,c1=0;
-    int x=0,z=0;
+    printf("\n\n\tBINARY SEARCH TREE\n\n");
 
-    do
+    node *root=NULL;
+
+    int i,x,c,cnt;
+    while(1)
     {
-        printf("\n\n1.Create\n2.Preorder\n3.Inorder\n4.Postorder\n5.Count\n6.Count Leaf\n7.Maximum\n8.Minimum\n9.Nodes in the right side of root \n10.Nodes in the left side of root\n11.Nodes with left child only\n12.Nodes with Right child only\n13.Exit ");
-        scanf(" %d",&num);
+        puts("1.INSERT");
+        puts("2.PRE ORDER");
+        puts("3.IN ORDER");
+        puts("4.POST ORDER");
+        puts("5.TOTAL NODES IN A TREE");
+        puts("6.BIGGEST AND SMALLEST NODE IN THE TREE");
+        puts("7.COUNT LEAF NODES");
 
-        switch (num)
+
+        printf("\n\nENTER YOUR CHOICE:");
+        scanf("%d",&i);
+        switch(i)
         {
-            case 1:
-            {
-                int x;
-                printf("Enter the data ");
-                scanf("%d",&x);
+        case 1:
+            printf("\n\nENTER THE ELEMENT:");
+            scanf("%d",&x);
+            root=insert(root,x);
+            break;
 
-                root=create(root,x);
-                break;
-            }
-            case 2:
+        case 2:
+            if(root==0)
+            printf("\n\nTHERE IS NO NODE IN TREE..!!\n\n");
+            else
             {
-                if (root==NULL)
-                {
-                    printf("\nEmpty");
-                }
-                else
-                {
-                    pre_order(root);
-                }
-                break;
+            printf("\n\nPRE ORDER\n\n");
+            preorder(root);
+            printf("\n\n");
             }
-            case 3:
-            {
-                if (root== NULL)
-                {
-                    printf("Empty");
-                }
-                else
-                {
-                    in_order(root);
-                }
-                break;
-            }
-            case 4:
-            {
-                if (root == NULL)
-                {
-                    printf("Empty");
+             break;
 
-                }
-                else
-                {
-                    post_order(root);
+        case 3:
+        if(root==0)
+            printf("\n\nTHERE IS NO NODE IN TREE..!!\n\n");
+        else
+        {
+            printf("\n\nIN ORDER\n\n");
+            inorder(root);
+            printf("\n\n");
+        }
+            break;
 
-                }
-                break;
-            }
-            case 5:
-            {c=0;
-                if (root == NULL)
-                {
-                    printf("empty");
-                }
-                else
-                {
-                    count(root,&c);
-                    printf("\nNumber of nodes:%d",c);
-                }
-                break;
-            }
-            case 6:
+        case 4:
+        if(root==0)
+            printf("\n\nTHERE IS NO NODE IN TREE..!!\n\n");
+        else
+        {
+            printf("\n\nPOST ORDER\n\n");
+            postorder(root);
+            printf("\n\n");
+        }
+            break;
+
+        case 5:
+             c=0;
+            if(root==NULL)
+                printf("\n\nNO NODE IN A TREE\n\n");
+            else
             {
-                if (root == NULL)
-                {
-                    printf("Empty");
-                }
-                else
-                {
-                    count_leaf(root,&c1);
-                    printf("No. of lefs are %d ",c1);
-                }
-                break;
+              count(root,&c);
+              printf("\n\nTHE TOTAL NUMBER OF NODES:%d\n",c);
             }
-            case 7:
-                get_max(root,&max);
-                printf("%d",max);
-                break;
-            case 8:
-                get_min(root,&min);
-                printf("%d ",min);
-                break;
-            case 9:
-                left_node(root->left,&x);
-                printf("no. of nodes in right: %d ",x);
-                break;
-            case 10:
-                right_node(root->right,&z);
-                printf("no. of nodes in left: %d ",z);
-                break;
+            break;
+        case 6:
+             if(root==NULL)
+                printf("\n\nNO NODE IN A TREE\n\n");
+            else
+            {
+                l_s(root);
+            }
+            break;
+        case 7:
+            if(root==NULL)
+                printf("\n\nNO NODE IN A TREE\n\n");
+            else
+            {
+                cnt=0;
+                count_leaf(root,&cnt);
+                printf("\n\nTHE TOTAL NUMBER OF THE LEAF NODE:%d\n\n",cnt);
+            }
 
         }
-    } while (num!=13);
-    
+    }
 }
