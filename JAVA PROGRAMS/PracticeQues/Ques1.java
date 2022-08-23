@@ -1,3 +1,5 @@
+//Wap to add three numbers asked from the user
+
 import java.util.Scanner;
 
 public class Ques1 {
