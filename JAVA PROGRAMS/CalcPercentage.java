@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class ProgramQues1 {
+public class CalcPercentage {
     public static void main(String[] args)
     {
         Scanner sc=new Scanner(System.in);
