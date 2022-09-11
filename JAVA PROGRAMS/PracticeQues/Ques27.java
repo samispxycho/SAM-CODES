@@ -1,21 +1,36 @@
-import java.util.Scanner;
+class Employee
+{
+    String name;
+    int salary;
+
+    public int getsalary()
+    {
+        return salary;
+    }
+
+    public String getname()
+    {
+        return name;
+    }
+
+    public void setname(String n)
+    {
+        name=n;
+    }
+}
 
 public class Ques27 {
-
-    static int add(int x)
-    {
-        int sum=0;
-        sum+=add(x);
-        return sum;
-    }
     public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        System.out.print("Enter a number upto which you want to find the sum of: ");
-        int num=sc.nextInt();
-        sc.close();
+        Employee obj1=new Employee();
+        obj1.name="SameerUpadhyay";
+        obj1.salary=55000;
 
-        int tot=add(num);
-        System.out.println(tot);
+        System.out.println("Salary of the person is "+obj1.getsalary());
+        System.out.println("Name of the person is "+obj1.getname());
+
+        System.out.println("After changing the name");
+        obj1.setname("Geminitay");
+        System.out.println("Name is now "+obj1.getname());
         
     }
 }
