@@ -3,11 +3,16 @@ interface MyCamera
 {
     void takingPics();
     void recordingVids();
-    default void recording4kVids()          //defining a method using default keyword
+    private void greet()    //We can also define a private method
     {
-        System.out.println("Recording in 4k resolution");
+        System.out.println("Good morning");
     }
-    
+    default void recording4kVids()  //defining a method using default keyword
+    {
+
+        System.out.println("Recording in 4k resolution");
+        greet();    //We can only call a private method inside a default method not onside the interface
+    }
 }
 
 interface FiWi
