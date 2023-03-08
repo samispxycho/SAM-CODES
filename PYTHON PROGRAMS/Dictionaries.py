@@ -1,44 +1,36 @@
-thisd={"brand":"Ford","model":1964}
-print(type(thisd))
-print(thisd)
+dict={1:"apple",2:"mango",3:"banana",4:"Kiwi",5:"orange"}
 
-print(thisd["model"])
-print(thisd.get("brand"))
+#accessing elements
+print(dict[3])
+print(dict.get(4))
+print(dict.keys())
+print(dict.values())
+print(dict.items())
 
-print(len(thisd))
+#updating items
+dict[3]="anaar"
+dict.update({4:"dragon fruit"})
+print(dict)
 
-print(thisd.keys())
-print(thisd.values())
-print(thisd.items())
+#adding items
+dict[6]="banana"
+dict.update({7:"Kiwi"})
+print(dict)
 
-thisd["brand"]="Tesla"
-thisd.update({"model":2023})
-print(thisd)
+#deleting items
+dict.pop(6)
+del dict[7]
+print(dict)
 
-thisd["color"]="white"
-print(thisd)
+#accessing through loops
+for x in dict:        #for keys
+    print(x)
+for i in dict:        #for values
+    print(dict[i])
+for j in dict:        #for both
+    print(j,dict[j])
 
-for i in thisd:
-    print(i)
-for i in thisd:
-    print(thisd[i])
-
-myd=thisd.copy()
-myd2=dict(myd)
-print(myd)
-print(myd2)
-
-myfamily = {
-  "child1" : {
-    "name" : "Emil",
-    "year" : 2004
-  },
-  "child2" : {
-    "name" : "Tobias",
-    "year" : 2007
-  },
-  "child3" : {
-    "name" : "Linus",
-    "year" : 2011
-  }
-}
+dict2=dict.copy()
+print(dict2)
+dict2.clear()
+print(dict2)

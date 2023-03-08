@@ -1,80 +1,57 @@
-#declaring a list in python
-mylist=["apple","banana","Kiwi","Mango","Orange"];
+list1=[10,20,30,40,50]
+list2=[60,70,80,90,100]
 
-#to print
-print(mylist)
-
-#acessing the items of a list
-print(mylist[0]) #indexing starts from 0
-print(mylist[-1]) #-1 points to the last item of the list
-
-#to provide a range
-print(mylist[2:5]) #5 will not be included
-print(mylist[-3:-1]) #negative indexing range)
-print(mylist[:])    #empty range..will print every data
-print(mylist[3:])   #3 to last
-print(mylist[:4])   #first to third
-
-#changing the value of a list
-mylist[1]="peach";
-print(mylist);
-
-#Currently list is [apple peach watermelon guava orange]
-
-#to change item values using a range
-mylist[2:4]="watermelon","guava";   #4 will not get including so only 2 values will change
-print(mylist)
-
-#if we insert more items than specified
-mylist[2:3]="grapes","pineapple","dragonfruit";
-print(mylist)
-
-#instead of changing, we can insert new values using .insert
-mylist.insert(2,"Anaar")
-print(mylist)
-
-#to check for an item using in operator
-if "apple" in mylist:
-    print("Yes");
-
-#to add an item at the last
-mylist.append("Cheeku")
-print(mylist)
-
-#to extend a list
-list1=[10,20];
-list2=[30,40];
-list1.extend(list2);
+#changable, ordered, allow duplicates
+list1[2]=50
 print(list1)
 
-#to remove items
-mylist.remove("apple")
-print(mylist)
+#accessing elements
+print(list1[:])         #all elements
+print(list1[:4])        #starts from 0
+print(list1[2:])        #goes till last
+print(list1[2:4])       #accessing through positive range
+print(list[-3])         #all range types allowed with -ve indexing as well
 
-#using pop method
-mylist.pop(4)
-print(mylist)
+#accessing through loops
+for x in list1:
+    print(x)
+for i in range(len(list2)):
+    print(list2[i])
+i=0
+while i<len(list1):
+    print(list1[i])
+    i=i+1
 
-#using del method
-del mylist[5]
-print(mylist)
+#sort lists
+list3=["yamaha","TVS","Kawasaki","royal enfield"]
+list3.sort()
+print(list3)
+list3.sort(reverse=True)
+print(list3)
+list3.sort(key=str.lower)       #ignore case sensitive
+print(list3)
+list3.sort(key=str.lower, reverse=True) #ignore case sensitivity in descending
+print(list3)
 
-#truncate list
-mylist.clear()
-print(mylist)
+#add two lists
+list4=list1+list2
+print(list4)
 
-#delete list
-del mylist
+#list methods
+list5=["samsung","redmi","oppo","vivo","micromax","asus"]
+list5.append("iphone")
+print(list5.count("samsung"))
+print(list5.index("oppo"))
+list5.pop(3)
+list5.remove("redmi")
+list6=list5.copy()
+list6.extend(list4)
+print(list6)
+print(list5)
 
-li=["apple","mango","orange","grapes","blueberry"];
-li.sort()
-li.sort(reverse=True)
-print(li)
-
-#to count the occurence of an item
-print(li.count('apple'))
-
-#to calculate the index
-print(li.index("grapes"))
-
-print(len(li))
+list7=["apple","banana","kiwi","cherry"]
+for x in list7:
+    if x=="apple":
+        id=list7.index("apple")
+        list7[id]="mango"
+print(list7)
