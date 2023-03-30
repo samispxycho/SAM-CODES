@@ -1,3 +1,4 @@
+"""
 def isgreater(a,b):
     if a>b:
         print(a," is the larger number")
@@ -21,3 +22,10 @@ coun("America")
 def calc(x):
     product=x*10
     return product
+"""
+
+def add(*nums):
+    return nums
+
+s=add(10,20,30,40,50)
+print(type(s))
