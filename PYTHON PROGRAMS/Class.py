@@ -1,10 +1,10 @@
 class Atm:
     def __init__(self):
-        self.__pin=17042003;
-        self.____balance=54000;
-        self.__menu();
+        self.pin=17042003;
+        self.balance=54000;
+        self.menu();
 
-    def __menu(self):
+    def menu(self):
         while True:
             ch=int(input("""
                 Hello, how would you like to proceed?
@@ -28,30 +28,30 @@ class Atm:
                 print("Enter a valid operation")
 
     def create_pin(self):
-        self.__pin=int(input("Enter your new pin "));
+        self.pin=int(input("Enter your new pin "));
         print("Pin set successfully");
     def deposit(self):
         temp=int(input("Enter your pin "))
-        if temp==self.__pin:
+        if temp==self.pin:
             amount=int(input("Enter the amount"))
-            self.__balance=self.__balance+amount;
+            self.balance=self.balance+amount;
             print("Amount deposited successfully")
         else:
             print("Invalid pin entererd")
     def withdraw(self):
         temp=int(input("Enter your pin "))
-        if temp==self.__pin:
+        if temp==self.pin:
             amount=int(input("Enter the amount"))
-            if amount<=self.__balance:
+            if amount<=self.balance:
                 print("Transaction on process, please wait")
-                self.__balance=self.__balance-amount
+                self.balance=self.balance-amount
             else:
                 print("Insufficient amount entered")
         else:
             print("Invalid pin entered")
     def check_balance(self):
         temp=int(input("Enter your pin "))
-        if temp==self.__pin:
+        if temp==self.pin:
             print("Your current account balance is ",self.balance)
         else:
             print("Invalid pin entererd")

@@ -22,10 +22,19 @@ coun("America")
 def calc(x):
     product=x*10
     return product
-"""
+
 
 def add(*nums):
     return nums
 
 s=add(10,20,30,40,50)
 print(type(s))
+"""
+
+l=50
+def add():
+    #l=25
+    global l
+    l=l+20
+    print(l)
+add()
