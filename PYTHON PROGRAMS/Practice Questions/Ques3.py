@@ -6,6 +6,18 @@ print("File extension: ",l1[-1])
 """
 
 """
+#without split
+str=input("Enter a file name: ")
+str1=str[::-1]
+str=""
+for i in range(0,len(str1)):
+    if str1[i]==".":
+        break
+    str=str+str1[i]
+print("Extension is:",str[::-1])
+"""
+
+"""
 #compute (n+nn+nnn)
 num=int(input("Enter a number: "))
 result=(num+(num*num)+(num*num*num))
@@ -70,4 +82,68 @@ for i in range(0,le):
         ind=l1.index(l1[i])
         d.update({l1[i]:ind})
 print(d)
+
+
+num1=int(input("Enter a number: "))
+num2=int(input("Enter a number: "))
+
+for i in range(num1,num2):
+    count=1
+    j=2
+    while j<=i:
+        if i%j==0:
+            count+=1
+        j+=1
+    
+    if count==2:
+        print(i)
+
 """
+
+
+"""
+
+*
+**
+***
+**
+*
+
+
+
+i=1
+while i<=3:
+    j=1
+    while j<=i:
+        print("*",end="") 
+        j+=1
+    print()
+    i+=1
+i=1
+while i<=2:
+    j=2
+    while j>=i:
+        print("*",end="")
+        j-=1
+    print()
+    i+=1
+
+"""
+
+"""
+st=input("Enter a string: ")
+st1=""
+
+for i in range(0,len(st)):
+    st1=st[i]+st1
+
+if st==st1:
+    print("Pallindrome string")
+else:
+    print("Not")
+"""
+
+
+email=input("Enter your email: ")
+l1=email.split("@")
+print(l1[0])

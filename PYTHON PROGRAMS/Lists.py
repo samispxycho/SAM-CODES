@@ -10,7 +10,7 @@ print(list1[:])         #all elements
 print(list1[:4])        #starts from 0
 print(list1[2:])        #goes till last
 print(list1[2:4])       #accessing through positive range
-print(list[-3])         #all range types allowed with -ve indexing as well
+print(list1[-3])         #all range types allowed with -ve indexing as well
 
 #accessing through loops
 for x in list1:
@@ -55,3 +55,12 @@ for x in list7:
         id=list7.index("apple")
         list7[id]="mango"
 print(list7)
+
+list8=[10,20,30,40,50,60,80,100]
+list9=[30,40,50,60,70,100]
+list10=[]
+for i in list8:
+    for j in list9:
+        if i==j:
+            list10.append(i)
+print(list10)
