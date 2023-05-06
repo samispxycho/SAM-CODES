@@ -270,3 +270,97 @@ for i in range(max1,(max1*min1)+1):
         print(i)
         break
 """
+
+
+"""
+str1=input("Enter a string: ")
+l1=[]
+dic={}
+for i in range(0,len(str1)):
+    l1.append(str1[i])
+l1.sort()
+
+for i in l1:
+    if i in dic:
+        dic[i]+=1
+    else:
+        dic[i]=1
+print(dic)
+"""
+
+
+"""
+l1=[13,15,10,25,7,23]
+l1.sort()
+print("Sorted list: ",l1)
+
+ele=int(input("Enter element to search: "))
+low=0
+high=len(l1)-1
+
+while low<=high:
+    mid=(low+high)//2
+    if l1[mid]==ele:
+        print("Element found at index: ",mid)
+        break
+    elif ele<l1[mid]:
+        high=mid
+    else:
+        low=mid
+"""
+
+"""
+l1=["RPQ","BAD","AXN","PAD"]
+l2=[]
+for i in l1:
+    l2.append(sorted(i))
+print(l2)
+l1.clear()
+for i in l2:
+    s=""
+    for j in i:
+        s+=j
+    l1.append(s)
+l1.sort()
+print(l1)
+"""
+
+"""
+le=int(input("Enter length: "))
+l1=[]
+lp=[]
+ln=[]
+for i in range(0,le):
+    l1.append(int(input("Enter element: ")))
+print("Original list: ",l1)
+
+for i in l1:
+    j=1
+    count=0
+    while j<=i:
+        if i%j==0:
+            count+=1
+        j+=1
+    if count==2:
+        lp.append(i)
+    else:
+        ln.append(i)
+    i+=1
+print("Prime list: ",lp)
+print("Non prime list: ",ln)
+"""
+
+"""
+l1=[19,15,13,17,12]
+lp=[]
+for i in l1:
+    j=1
+    c=0
+    while j<=i:
+        if i%j==0:
+            c+=1
+        j+=1
+    if c==2:
+        lp.append(i)
+print(lp)
+"""

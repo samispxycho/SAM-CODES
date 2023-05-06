@@ -1,40 +1,48 @@
 """
+#Normal function
 def isgreater(a,b):
     if a>b:
-        print(a," is the larger number")
+        return a
     else:
-        print(b," is the larger number")
-isgreater(20,30)
-
-def vals(*values):
-    print(values)
-
-vals(10,20,30,40,50)
-
-def coun(country="India"):
-    print("I am from ",country)
-
-coun("Norway")
-coun("Australia")
-coun()
-coun("America")
-
-def calc(x):
-    product=x*10
-    return product
-
-
-def add(*nums):
-    return nums
-
-s=add(10,20,30,40,50)
-print(type(s))
+        return b
+    
+num=isgreater(13,10)
+print("The greater number is: ",num)
 """
 
-l=50
-def add():
-    #l=25
-    global l
-    l=l+20
-    print(l)
-add()
+"""
+#default args
+def sum(a=100,b=50):
+    print("Sum is : ",a+b)
+
+sum()
+sum(20,10)
+sum(20)
+sum(b=20)          
+"""
+
+"""
+#Keyword args
+def name(fname,mname,lname):
+    print("Your name: ",fname,mname,lname)
+
+name(mname="Sameer",lname="Peter",fname="Upadhyay")
+"""
+
+"""
+def average(*numbers):
+    sum1=0
+    for i in numbers:
+        sum1+=i
+    print("Average is: ",sum1/len(numbers))
+    print(type(numbers))
+
+average(10,20,30,40,50,60)
+"""
+
+"""
+#Multiple *s arent allowed
+def name(*fname,*lname):    #this is invalid
+    pass                    
+"""
+
