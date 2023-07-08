@@ -46,3 +46,6 @@ def name(*fname,*lname):    #this is invalid
     pass                    
 """
 
+#lambda functions
+square=lambda x:x**2
+print(square(5)) 

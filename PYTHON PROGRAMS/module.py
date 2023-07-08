@@ -12,3 +12,8 @@ from mymod import add,sub       #--->To import specific methods
 add(2,4)
 sub(5,2)
 """
+
+"""
+import mymod as my
+my.add(50,60)
+"""
