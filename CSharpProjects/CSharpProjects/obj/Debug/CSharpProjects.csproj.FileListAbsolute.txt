@@ -1,0 +1,7 @@
+C:\Users\Sameer Upadhyay\OneDrive\Documents\SAM-CODES\CSharpProjects\CSharpProjects\bin\Debug\CSharpProjects.exe.config
+C:\Users\Sameer Upadhyay\OneDrive\Documents\SAM-CODES\CSharpProjects\CSharpProjects\bin\Debug\CSharpProjects.exe
+C:\Users\Sameer Upadhyay\OneDrive\Documents\SAM-CODES\CSharpProjects\CSharpProjects\bin\Debug\CSharpProjects.pdb
+C:\Users\Sameer Upadhyay\OneDrive\Documents\SAM-CODES\CSharpProjects\CSharpProjects\obj\Debug\CSharpProjects.csproj.AssemblyReference.cache
+C:\Users\Sameer Upadhyay\OneDrive\Documents\SAM-CODES\CSharpProjects\CSharpProjects\obj\Debug\CSharpProjects.csproj.CoreCompileInputs.cache
+C:\Users\Sameer Upadhyay\OneDrive\Documents\SAM-CODES\CSharpProjects\CSharpProjects\obj\Debug\CSharpProjects.exe
+C:\Users\Sameer Upadhyay\OneDrive\Documents\SAM-CODES\CSharpProjects\CSharpProjects\obj\Debug\CSharpProjects.pdb
