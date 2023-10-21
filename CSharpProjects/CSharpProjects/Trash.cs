@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace CSharpProjects
 {
-    internal class BubbleSort
+    internal class Trash
     {
+
         static void Main(string[] args)
         {
-            string str = "hello";
-            Console.WriteLine(str[2]);
+            string str = "sameer";
+            Console.WriteLine(str[3]);
+
+
         }
     }
 }

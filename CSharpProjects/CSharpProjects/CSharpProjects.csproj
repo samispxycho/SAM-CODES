@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>CSharpProjects.FirstAlphaCapitalize</StartupObject>
+    <StartupObject>CSharpProjects.Trash</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -71,6 +71,7 @@
     <Compile Include="SumOfDigits2.cs" />
     <Compile Include="SumOfDigitStr.cs" />
     <Compile Include="TotalPrimeStr.cs" />
+    <Compile Include="Trash.cs" />
     <Compile Include="Vowels.cs" />
     <Compile Include="ZerosToEnd.cs" />
   </ItemGroup>
