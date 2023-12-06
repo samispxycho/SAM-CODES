@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>CSharpProjects.Trash</StartupObject>
+    <StartupObject>CSharpProjects.Delegates2</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -51,6 +51,8 @@
     <Compile Include="BubbleSort.cs" />
     <Compile Include="CallByRef.cs" />
     <Compile Include="CallByVal.cs" />
+    <Compile Include="Delegates.cs" />
+    <Compile Include="Delegates2.cs" />
     <Compile Include="FirstAlphaCapitalize.cs" />
     <Compile Include="LargestWord.cs" />
     <Compile Include="LeftSortByOne.cs" />
@@ -71,7 +73,6 @@
     <Compile Include="SumOfDigits2.cs" />
     <Compile Include="SumOfDigitStr.cs" />
     <Compile Include="TotalPrimeStr.cs" />
-    <Compile Include="Trash.cs" />
     <Compile Include="Vowels.cs" />
     <Compile Include="ZerosToEnd.cs" />
   </ItemGroup>
