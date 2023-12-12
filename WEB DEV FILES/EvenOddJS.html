@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Document</title>
+    <script>
+        function even_odd(){
+            var num = document.myform.n1.value;
+            if(num % 2==0){
+                alert("Number is even");
+            }else{
+                alert("Number is odd");
+            }
+        }
+    </script>
+</head>
+<body>
+    <form name="myform">
+        Enter a number<input type="text" id="n1"><br><br><br>
+        <input type="button" onclick="even_odd()" value="click">
+    </form>
+</body>
+</html>

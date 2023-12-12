@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function add(event){
+            if(event.key==='Enter'){
+                var n1 = document.getElementById("n1").value;
+                var n2 = document.getElementById("n2").value;
+                var n3 = document.getElementById("n3");
+                n3.value=parseInt(n1)+parseInt(n2);
+            }
+        }
+    </script>
+</head>
+<body>
+    <form>
+        Number 1<input type="text" id="n1"><br><br>
+        Number 2<input type="text" id="n2"><br><br>
+        <input type="text" id="n3" onkeypress="add(event)">
+
+    </form>
+</body>
+</html>

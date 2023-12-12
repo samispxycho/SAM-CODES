@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>CSharpProjects.Delegates2</StartupObject>
+    <StartupObject>CSharpProjects.ExceptionHand</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -53,6 +53,7 @@
     <Compile Include="CallByVal.cs" />
     <Compile Include="Delegates.cs" />
     <Compile Include="Delegates2.cs" />
+    <Compile Include="ExceptionHand.cs" />
     <Compile Include="FirstAlphaCapitalize.cs" />
     <Compile Include="LargestWord.cs" />
     <Compile Include="LeftSortByOne.cs" />

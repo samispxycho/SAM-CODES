@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Document</title>
+    <script>
+        function enlarge(){
+            var a = document.getElementById("img_id");
+            a.style.height="500px";
+            a.style.width="500px";
+        }
+        function shrink(){
+            var a = document.getElementById("img_id");
+            a.style.height="200px";
+            a.style.width="200px";
+        }
+    </script>
+</head>
+<body>
+    <img src="johan.jpg" id="img_id">
+    <input type="button" value="max" onclick="enlarge()">
+    <input type="button" value="min" onclick="shrink()">
+</body>
+</html>

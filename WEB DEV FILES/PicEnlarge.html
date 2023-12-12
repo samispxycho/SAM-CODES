@@ -1,0 +1,18 @@
+<html>
+<head>
+    <title>Document</title>
+    <script>
+       function enlarge(pic){
+            pic.style.width="500px";
+            pic.style.height="500px";
+       }
+       function shrink(pic){
+        pic.style.width="200px";
+        pic.style.height="200px";
+       }
+    </script>
+</head>
+<body>
+    <img src="johan.jpg" onmouseover="enlarge(this);" onmouseout="shrink(this)">
+</body>
+</html>
