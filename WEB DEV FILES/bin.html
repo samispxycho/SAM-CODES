@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script>
+        function change(){
+            var name1=document.getElementById("abc");
+            var name2=name1.value;
+            var uppername=name2.toUpperCase();
+            name1.value=uppername;
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <input type="text" id="abc">
+        <input type="button" onclick="change();" value="Click">
+    </form>
+</body>
+</html>

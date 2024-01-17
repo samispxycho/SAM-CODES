@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>CSharpProjects.ExceptionHand</StartupObject>
+    <StartupObject>CSharpProjects.trash</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -51,8 +51,11 @@
     <Compile Include="BubbleSort.cs" />
     <Compile Include="CallByRef.cs" />
     <Compile Include="CallByVal.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="CustomExcep.cs" />
     <Compile Include="Delegates.cs" />
     <Compile Include="Delegates2.cs" />
+    <Compile Include="deli.cs" />
     <Compile Include="ExceptionHand.cs" />
     <Compile Include="FirstAlphaCapitalize.cs" />
     <Compile Include="LargestWord.cs" />
@@ -62,9 +65,11 @@
     <Compile Include="PallindromeArray.cs" />
     <Compile Include="PallinString.cs" />
     <Compile Include="PassByOutt.cs" />
+    <Compile Include="Pract.cs" />
     <Compile Include="PrimeWithinRange.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FrequencyOfChar.cs" />
+    <Compile Include="Recycle.cs" />
     <Compile Include="RemoveChar.cs" />
     <Compile Include="RemoveSpace.cs" />
     <Compile Include="SecondMinMax.cs" />
@@ -74,6 +79,7 @@
     <Compile Include="SumOfDigits2.cs" />
     <Compile Include="SumOfDigitStr.cs" />
     <Compile Include="TotalPrimeStr.cs" />
+    <Compile Include="trash.cs" />
     <Compile Include="Vowels.cs" />
     <Compile Include="ZerosToEnd.cs" />
   </ItemGroup>

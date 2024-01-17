@@ -43,7 +43,7 @@ namespace CSharpProjects
             }
             */
 
-            /*
+            
             //Our throw, our catch
             int age = int.Parse(Console.ReadLine());
             try
@@ -55,7 +55,7 @@ namespace CSharpProjects
             {
                 Console.WriteLine(e.Message);
             }
-            */
+            
             Console.WriteLine("...");
 
 

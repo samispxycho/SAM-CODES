@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Document</title>
+    <script>
+        function validate(){
+            var name=document.getElementById("naam").value;
+            if(name==""){
+                alert("Enter name");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="return validate()">
+        Enter name<input type="text" id="naam"> <br><br>
+        Enter age<input type="number" id="umar"> <br> <br>
+        Choose one
+        <select id="sel">
+            <option value="default">select</option>
+            <option value="op1">BCA</option>
+            <option value="op2">MCA</option>
+            <option value="op3">Btech</option>
+        </select>
+        <input type="submit">
+    </form>
+</body>
+</html>
