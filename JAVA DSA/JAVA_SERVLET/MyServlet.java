@@ -15,9 +15,9 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/aaa")
 public class MyServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req,HttpServletResponse res)throws ServletException, IOException{
-		System.out.println("Im on server");
+		System.out.println("Im on server"); //FOR DISPLAYING IN CONSOLE
 		
-		PrintWriter out=res.getWriter();
+		PrintWriter out=res.getWriter();    //FOR DISPLAYING IN BROWSER
 		out.print("I am in browser");
 	}
 }
