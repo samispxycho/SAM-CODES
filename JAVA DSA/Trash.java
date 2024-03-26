@@ -1,9 +1,12 @@
 public class Trash {
+
+    static void func(){
+        System.out.println(1);
+        func();
+    }
+
     public static void main(String[] args) {
-        int[]arr={2,4,6,8,10};
-        int sq=0;
-        for(int i=0;i<2;i++){
-            sq=sq+arr[i]*arr[i];
-        }      
+        Trash.func();
+           
     }
 }
