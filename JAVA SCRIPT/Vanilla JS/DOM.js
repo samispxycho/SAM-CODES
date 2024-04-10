@@ -43,6 +43,19 @@ console.log(fourthEle.lastChild);
 console.log(fourthEle.children[0]);
 console.log(fourthEle.children[1]);
 
+//Create elements
+var ele1=document.createElement("button").innerText="Append";
+var ele2=document.createElement("button").innerText="Prepend";
+var ele3=document.createElement("button").innerText="Before";
+var ele4=document.createElement("button").innerText="After";
+
+var divJS=document.querySelector("#DivJS");
+divJS.append(ele1);
+divJS.prepend(ele2);
+divJS.before(ele3);
+divJS.after(ele4);
+
+
 
 //------------------------------------------------------------------------------------------------------//
 
