@@ -1,0 +1,242 @@
+//USING ARRAY FOR SIMPLICITY
+
+//index.js
+
+import React from 'react';
+import ReactDom from 'react-dom';
+import Arr from './Arr';
+import Card from './App';
+import './index.css';
+
+ReactDom.render(
+  <>
+
+    <h1 class="text-center font-sans uppercase text-5xl tracking-wide text-slate-600 mb-[30px] head">Top Anime List in Netflix</h1>
+
+    <Card
+      imgsrc={Arr[0].imgsrc}
+      description={Arr[0].description}
+      title={Arr[0].title}
+      link={Arr[0].link}
+    />
+
+    <Card
+      imgsrc={Arr[1].imgsrc}
+      description={Arr[1].description}
+      title={Arr[1].title}
+      link={Arr[1].link}
+    />
+
+    <Card
+      imgsrc={Arr[2].imgsrc}
+      description={Arr[2].description}
+      title={Arr[2].title}
+      link={Arr[2].link}
+    />
+
+    <Card
+      imgsrc={Arr[3].imgsrc}
+      description={Arr[3].description}
+      title={Arr[3].title}
+      link={Arr[3].link}
+    />
+
+    <Card
+      imgsrc={Arr[4].imgsrc}
+      description={Arr[4].description}
+      title={Arr[4].title}
+      link={Arr[4].link}
+    />
+
+    <Card
+      imgsrc={Arr[5].imgsrc}
+      description={Arr[5].description}
+      title={Arr[5].title}
+      link={Arr[5].link}
+    />
+
+  </>,
+  document.getElementById('root')
+
+);
+
+-----------------------------------------------------------------------------------------------------------------
+
+//App.js
+
+import React from 'react';
+
+function Card(props) {
+    return (
+        <>
+            <div className="Allcards">
+
+                <div className="card">
+
+                    <img src={props.imgsrc} className="card__img" />
+
+                    <div className="card__info">
+
+                        <span className="card__category">{props.description} </span>
+                        <h3 className="card__title font-bold text-2xl">{props.title} </h3>
+                        <a href={props.link} target="_blank">
+                            <button className='button'>Watch Now</button>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </>
+    );
+}
+
+export default Card;
+
+-----------------------------------------------------------------------------------------------------------------------
+
+//Arr.js
+
+import React from 'react';
+
+const Arr = [
+
+    {
+        imgsrc: "loffy.jpg",
+        description: "A Netflix Original Series",
+        title: "One Piece",
+        link: "https://www.netflix.com/in/title/80107103"
+    },
+
+    {
+        imgsrc: "jojo.jpg",
+        description: "A Netflix Original Series",
+        title: "Jojo's bizarre adventure",
+        link: "https://www.netflix.com/in/title/80179831"
+    },
+
+    {
+        imgsrc: "bleach.jpg",
+        description: "From Trending Anime",
+        title: "Bleach",
+        link: "https://www.netflix.com/in/title/70204957"
+    },
+
+    {
+        imgsrc: "monster.jpg",
+        description: "A Netflix Original Series",
+        title: "Monster",
+        link: "https://www.netflix.com/in/title/81409869"
+    },
+
+    {
+        imgsrc: "vinalnd.jpg",
+        description: "From Trending Anime",
+        title: "Vinland Saga",
+        link: "https://www.netflix.com/in/title/81249833"
+    },
+
+    {
+        imgsrc: "DSS.jpg",
+        description: "From Trending Anime",
+        title: "Demon Slayer",
+        link: "https://www.netflix.com/in/title/81091393"
+    },
+
+];
+
+export default Arr;
+
+-----------------------------------------------------------------------------------------------------------------------
+
+//index.css
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background-color: #d2dbdd;
+}
+
+
+.head {
+    padding: 30px 0;
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    background-color: #fff;
+}
+
+.cards {
+    width: 100%;
+    height: auto;
+}
+
+.card {
+    /* margin: 25px; */
+    margin: 6%;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+    background-color: M#fff;
+    width: 21.25%;
+    border-radius: 12px;
+    box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+    float: left;
+}
+
+.card:hover {
+    box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.2, 1.2);
+}
+
+.card__img {
+    width: 100%;
+    height: 235px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.card__info {
+    background-color: #fff;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding: 16px 24px 24px 24px;
+    background-color: R#fff;
+
+}
+
+.card__category {
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #868686;
+    background-color: #fff;
+}
+
+.card__title {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-family: "Raleway", sans-serif;
+    background-color: #fff;
+    text-transform: capitalize;
+}
+
+button {
+    padding: 5px 8px;
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: HI#868686;
+    background-color: #fff;
+    outline: none;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+-------------------------------------------------------------------------------------------------------------------------------

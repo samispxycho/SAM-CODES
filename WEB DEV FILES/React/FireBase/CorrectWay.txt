@@ -1,0 +1,93 @@
+//index.js
+
+import React from "react";
+import ReactDom from "react-dom";
+import App from "./App";
+
+import { f_provider } from "./context/Firebase";
+
+ReactDom.render(
+    <>
+        <f_provider>
+            <App />                              {/* now our app have acess to the context */}
+        </f_provider>                            {/* we can now inject our functions to this context */}
+    </>,
+    document.getElementById("root")
+);
+
+================================================================================================================================
+
+//App.jsx
+
+{/* same logic of creating user will be used */}
+
+import React, { useState } from "react";
+import { useCustom_hook } from "./context/Firebase";
+
+
+function App() {
+
+    const useCustom_hook_import = useCustom_hook();
+    const [email,setEmail] = useState("");
+    const [pass,setPass] = useState("");
+
+    console.log(useCustom_hook_import) /* bus check krne ke liye, we will notice that jitne bhi methods as a value pass krre the in provider inside firebase.jsx, vo sab return hogye inside this hook (in our case only 1 that is create_user) */
+
+    return (
+        <>
+
+            <h1>SIGN UP USING EMAIL</h1>
+
+            <input type="email" onChange={(e)=>setEmail(e.target.value)} value={email} placeholder="Enter your email" />
+
+            <input type="password" onChange={(e)=>setPass(e.target.value)} value={pass} placeholder="Enter your password" />
+
+            <button onClick={()=>useCustom_hook_import.createUser(email,pass)}>Click here</button> {/* calling the function using custom hook */}
+        </>
+    );
+}
+
+export default App;
+
+================================================================================================================================
+
+{/* To inject functions, we can do normally like we did all the time.. */}
+
+import { createContext, useContext } from "react";
+import { initializeApp } from "firebase/app";
+import { getAuth,createUserWithEmailAndPassword } from "firebase/auth";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDl0yfdRN7RodiJmltBL_T5ot6WMNUTYRk",
+    authDomain: "my-app-265bc.firebaseapp.com",
+    databaseURL: "https://my-app-265bc-default-rtdb.firebaseio.com",
+    projectId: "my-app-265bc",
+    storageBucket: "my-app-265bc.appspot.com",
+    messagingSenderId: "428518491089",
+    appId: "1:428518491089:web:0c42deca58f902512ed6f0"
+  };
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);                {/* for eg: creating user with email, password */}
+const f_context = createContext("");    {/* default value null */}
+
+export const useCustom_hook = () => useContext(f_context);  {/* using this custom hooks hum access krenge hamare methods in other files or components */}
+
+export const f_provider = (props) =>{   {/* creating context provider */}
+
+    const createUser = (email,password) =>{
+        return createUserWithEmailAndPassword(auth,email,password);
+    }
+
+    return(
+        <>
+            <f_context.Provider value={{createUser}}>      {/* passing create user to the provider */}
+                {props.children}        {/* the actual data will be in .children */}
+            </f_context.Provider>
+        </>
+    );
+}
+
+{/* or functions inject krne hai toh simply create the method fir provider ki value mai , krke new method */}
+
+================================================================================================================================

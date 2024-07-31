@@ -1,0 +1,108 @@
+//index.jsx
+
+import React from "react";
+import ReactDom from "react-dom";
+import App from "./App";
+
+ReactDom.render(
+    <App/>,
+    document.getElementById("root")
+);
+
+===================================================================================================================
+
+//App.jsx
+
+import React, { createContext } from "react";
+import Compo1 from "./Compo1";
+
+const First_Name=createContext();
+const Last_Name=createContext();
+
+function App() {
+    return (
+        <>
+            <First_Name.Provider value={"Roronoa"}>
+                <Last_Name.Provider value={"Zoro"}>
+                    <Compo1/>
+                </Last_Name.Provider>
+            </First_Name.Provider>
+        </>
+    );
+}
+
+export default App;
+export {First_Name, Last_Name};
+
+
+{/* Sending data to compo2 using useContext() */}
+{/* Sending data to compo3 using .Consumer() */}
+
+===================================================================================================================
+
+//Compo1.jsx
+
+import React from "react";
+import Compo2 from "./Compo2";
+
+function Compo1(){
+    return(
+        <Compo2/>
+    );
+}
+
+export default Compo1;
+
+===================================================================================================================
+
+//Compo2.jsx
+
+import React, { useContext } from "react";
+import { First_Name, Last_Name } from "./App";
+
+function Compo2(){
+
+    const str1 = useContext(First_Name); 
+    const str2 = useContext(Last_Name);
+
+    return(
+        <h1>My name is {str1} {str2}</h1>
+    );
+}
+
+export default Compo2;
+
+{/* Consuming multiple contexts using useContext method */}
+
+===================================================================================================================
+
+//Compo3.jsx
+
+import React from "react";
+import { First_Name, Last_Name } from "./App";
+
+function Compo3(){
+    return(
+        <>
+            <First_Name.Consumer>
+                {(str1)=>{
+                    return(
+                        <Last_Name.Consumer>
+                            {(str2)=>{
+                                return(
+                                    <h1>My name is {str1} {str2}</h1>
+                                );
+                            }}
+                        </Last_Name.Consumer>
+                    );
+                }}
+            </First_Name.Consumer>
+        </>
+    );
+}
+
+export default Compo3;
+
+{/* Consuming multiple contexts using .Consumer.....Can lead to callback hell and is also very lengthy and complex */}
+
+===================================================================================================================

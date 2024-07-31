@@ -4,7 +4,7 @@
 
 float equation(float x){
     float f;
-    f=((x*x*x*x)-x-10);
+    f=((x*x*x)-(4*x)-9);
     return f;
 }
 

@@ -1,0 +1,41 @@
+//index.js
+
+import React from "react";
+import ReactDom from "react-dom";
+import App from "./App";    
+
+ReactDom.render(
+    <App/>,
+    document.getElementById("root")
+);
+
+=========================================================================================================================
+
+//FetchDocs
+
+import React from "react";
+import { app } from "./firebase";
+import { getFirestore, doc, getDoc, query, where, collection, getDocs } from "firebase/firestore";
+
+const firestore = getFirestore(app);
+
+function FetchDocs() {
+
+    const getDocuments = async () => {
+        const collectionRef = collection(firestore, "ONE PIECE");
+        const q = query(collectionRef, where("fruit", "==", "gum gum no mi"))
+        const snapshot = await getDocs(q);
+        snapshot.forEach((elements) => console.log(elements.data()));
+    }
+
+    return (
+        <>
+            <button onClick={getDocument}>GET DOCUMENT</button>
+            <button onClick={getDocuments}>GET ALL DOCUMENTS</button>
+        </>
+    );
+}
+
+export default FetchDoc;
+
+=========================================================================================================================

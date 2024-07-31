@@ -1,0 +1,80 @@
+//index.js
+
+import React from 'react';
+import ReactDOM from 'react-dom'
+import "./index.css"
+
+
+let currtime = new Date().toLocaleTimeString();
+let currTimeNum=new Date();
+currTimeNum=currTimeNum.getHours();
+let finalTime;
+
+const obj={ };
+
+if(currTimeNum>=1 && currTimeNum <= 11){
+  finalTime="GOOD MORNING,";
+  obj.color='red';
+}else if(currTimeNum>=12 && currTimeNum<18){
+  finalTime="GOOD AFTERNOON,";
+  obj.color='green';
+}else{
+  finalTime="GOOD EVENING,";
+  obj.color='blue';
+}
+
+
+ReactDOM.render(
+  <>
+    <div className="text-5xl font-bold text-center">
+      <h1 className="heading">Hello, my name is Monkey D Luffy</h1>
+    </div>
+
+    <div className='mx-[38rem] mt-6'>
+      <img id="zl" src="./zoroluffy.jpg" />
+    </div>
+
+
+    <div>
+      <p className='text-green-600 font-bold text-center mt-10 text-5xl rounded-lg bg-yellow-200 py-3 timezl '> <span style={obj} className='bg-yellow-200'>{finalTime}</span> Current Time is {currtime}</p>
+    </div>
+
+  </>,
+  document.getElementById('root')
+);
+
+---------------------------------------------------------------------------------------------------
+
+//index.css
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  margin:0px;
+  padding: 0px;
+  background-color: lightskyblue;
+}
+
+.headingDiv{
+    display: inline-block;
+    margin:0 45rem;
+    margin-top: 6rem;
+}
+
+.heading{
+  color:red;
+  font-weight: bolder;
+  
+}
+
+#zl{
+  height:400px;
+}
+
+.timezl{
+  display: inline-block;
+  border:6px solid black;
+  margin-left: 30rem;
+}

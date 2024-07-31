@@ -1,0 +1,63 @@
+//firebase.js
+
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDl0yfdRN7RodiJmltBL_T5ot6WMNUTYRk",
+    authDomain: "my-app-265bc.firebaseapp.com",
+    projectId: "my-app-265bc",
+    storageBucket: "my-app-265bc.appspot.com",
+    messagingSenderId: "428518491089",
+    appId: "1:428518491089:web:0c42deca58f902512ed6f0",
+    databaseURL:"https://my-app-265bc-default-rtdb.firebaseio.com"
+  };
+
+export const app=initializeApp(firebaseConfig);
+
+=========================================================================================================================================================
+
+//App.jsx
+
+import {createUserWithEmailAndPassword, getAuth} from "firebase/auth";
+import React from 'react';
+import { app } from './firebase';
+
+const auth = getAuth(app);
+
+function App() {
+
+    const signUpPage=()=>{
+        createUserWithEmailAndPassword(
+            auth,
+            "samispxycho@gmail.com",
+            "password123"
+        ).then((value)=>console.log(value));
+    };
+
+    return (
+        <div>
+            <h1 className='text-center text-4xl font-bold'>Firebase React App</h1>
+            <button onClick={signUpPage}>Create User</button>
+        </div>
+    );
+}
+
+export default App;
+
+=========================================================================================================================================================
+
+//index.js
+
+import React from 'react';
+import ReactDom from 'react-dom';
+import App from './App';
+import './index.css';
+
+ReactDom.render(
+    <App/>,
+    document.getElementById('root')
+);
+
+=========================================================================================================================================================
+
+//no css 

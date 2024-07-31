@@ -1,0 +1,38 @@
+//index.jsx
+
+import React from "react";
+import ReactDom from "react-dom";
+import App from "./App";
+
+ReactDom.render(
+    <App/>,
+    document.getElementById("root")
+);
+
+==============================================================================================================================
+
+//App.jsx
+
+import React, { useEffect } from "react";
+import { useState } from "react";
+
+function App(){
+
+    const [num,setNum]=useState(0);
+
+    useEffect(()=>{
+        if(num==10){
+            alert("10 times Clicked");
+        }
+    })
+
+    return(
+        <button onClick={()=>{
+            setNum(num+1);
+        }}>Click me {num}</button>
+    );
+}
+
+export default App;
+
+==============================================================================================================================

@@ -1,0 +1,80 @@
+//firebase.js
+
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDl0yfdRN7RodiJmltBL_T5ot6WMNUTYRk",
+    authDomain: "my-app-265bc.firebaseapp.com",
+    projectId: "my-app-265bc",
+    storageBucket: "my-app-265bc.appspot.com",
+    messagingSenderId: "428518491089",
+    appId: "1:428518491089:web:0c42deca58f902512ed6f0",
+    databaseURL:"https://my-app-265bc-default-rtdb.firebaseio.com"
+  };
+
+export const app=initializeApp(firebaseConfig);
+
+==================================================================================================================
+
+//index.js
+
+import React from "react";
+import ReactDom from "react-dom";
+import App from "./App";
+
+ReactDom.render(
+    <App/>,
+    document.getElementById('root')
+);
+
+===================================================================================================================
+
+//Signup.jsx
+
+import React, { useState } from 'react';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {app} from "./firebase";
+
+const auth = getAuth(app);
+
+function Signup() {
+
+    const [email, setEmail] = useState("");
+    const [password, setPass] = useState("");
+
+    const createUser = () => {
+        createUserWithEmailAndPassword(auth, email, password);
+
+    }
+
+    return (
+        <div>
+
+            <input onChange={e=>setEmail(e.target.value)} value={email} type="email" placeholder="Enter your email" />
+            <input onChange={e=>setPass(e.target.value)} value={password} type="password" placeholder="Enter your password" />
+
+            <button onClick={createUser}>Click here</button>
+        </div>
+    )
+}
+
+export default Signup;
+
+===================================================================================================================
+
+//App.jsx
+
+import React from 'react';
+import Signup from "./Signup";
+
+function App(){
+    return(
+        <Signup/>
+    );
+}
+
+export default App;
+
+===================================================================================================================
+
+//nocss
