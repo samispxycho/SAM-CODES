@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Document</title>
+    <script>
+        function even_odd_array(){
+            var arr=[];
+            for(var i=0;i<10;i++){
+                arr[i] = parseInt(prompt("Enter number: "));
+            }
+
+            var even_arr=[]; var even_index = 0;
+            var odd_arr=[];  var odd_index = 0;
+
+            for(var i in arr){
+                if(arr[i] % 2 ==0)even_arr[even_index++]=arr[i];
+                else odd_arr[odd_index++]=arr[i];
+            }
+
+            document.write("Even array </br>");
+            for(var i in even_arr){
+                document.write(even_arr[i] + "</br>");
+            }
+
+            document.write("Odd array </br>");
+            for(var i in odd_arr){
+                document.write(odd_arr[i] + "</br>");
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="Click" onclick="even_odd_array()">
+</body>
+</html>

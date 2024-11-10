@@ -1,0 +1,53 @@
+<html>
+<head>
+    <title>Document</title>
+
+    <script>
+
+        function createP(){
+
+            const ele = document.createElement("h1");   //creating an element
+            const text = document.createTextNode("This is inserted using createTextNode method");   //inserting data
+
+            ele.appendChild(text);
+  
+            document.body.append(ele);
+        }
+
+        function removeCh(){
+            const list = document.getElementById("List");
+            const removeList2 = document.getElementById("l2");
+            list.removeChild(removeList2);
+        }
+
+        function insertBefore123(){
+
+            const ele = document.createElement("li");
+            const text = document.createTextNode("This item is added using insertBefore()");
+            ele.appendChild(text);
+
+            const list=document.getElementById("List");
+            const refNode=document.getElementById("l3");
+            
+            list.insertBefore(ele,refNode);
+
+        }
+
+    </script>
+
+</head>
+<body>
+    
+    <input type="button" value="Click" onclick="createP()">
+
+    <ul id="List">
+        <li id="l1">ABC</li>
+        <li id="l2">XYZ</li>
+        <li id="l3">123</li>
+    </ul>
+    <input type="button" value="Click to remove list two" onclick="removeCh()">
+
+    <input type="button" value="Click here to insert before 123" onclick="insertBefore123()">
+
+</body>
+</html>
