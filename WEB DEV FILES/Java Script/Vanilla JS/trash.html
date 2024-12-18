@@ -1,40 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Highlight Search</title>
-    <style>
-        .highlight {
-            background-color: yellow;
-            color: red;
-            font-size: 24px;
+    <title>Document</title>
 
+    <script>
+        function reverse(){
+            
+            var str = document.getElementById("str").value;
+            strArray  = str.split("");
+
+            var start = 0;
+            var end = str.length-1;
+
+            while(start<end){
+                var temp = strArray[start];
+                strArray[start] = strArray[end];
+                strArray[end] = temp;
+
+                start++;
+                end--;
+            }
+
+            var reversedStr = strArray.join('');
+            alert(reversedStr);
+            
         }
+    </script>
 
-        <script>function highlight() {
-            const para=document.getElementById("content");
-            const search=document.getElementById("search").value;
-
-            const regex=new RegExp(`($ {
-                        search
-                    })`, "gi");
-            para.innerHTML=para.textContent.replace(regex, '<span class="highlight">$1</span>');
-        }
-
-        </script>
-    </style>
 </head>
-
 <body>
-    <p id="content">
-        This is a sample paragraph where you can search for words or phrases to highlight.
-    </p>
-    <input type="text" id="search" placeholder="Search here" />
-    <button onclick="highlight()">Search</button>
-
+    
+    <form>
+        Enter a string: <input type="text" id="str">
+        <input type="button" value="submit" onclick="reverse()"/>
+    </form>
 
 </body>
-
 </html>
