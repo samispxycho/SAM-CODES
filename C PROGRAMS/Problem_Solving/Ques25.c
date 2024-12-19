@@ -10,7 +10,7 @@ struct library{
 }typedef library;
 
 int main(){
-
+    
     library book1;
 
     printf("\nEnter book ID: ");
