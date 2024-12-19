@@ -1,34 +1,29 @@
 #include<stdio.h>
 #include<string.h>
+
 int main(){
 
-    char str[20];
-    char sub[10];
+    char str1[]="Hello world";
+    char str2[]="world";
 
-    gets(str);
-    fflush(stdin);
-    gets(sub);
+    for(int i=0;i<=strlen(str1)-strlen(str2);i++){
 
-    for(int i=0;i<strlen(str);i++){
-        
-        int found = 1; //assume
-
-        for(int j=0;j<strlen(sub);j++){
-            if(str[i+j]!=sub[j]){
+        int found=1;
+        for(int j=0;j<strlen(str2);j++){
+            if(str1[i+j] != str2[j]){
                 found = 0;
                 break;
             }
         }
-
-        if(found==1){
-            printf("Substring found");
+        
+        if(found == 1){
+            printf("String found at index %d",i);
             return 0;
         }
     }
 
     printf("Not found");
-
-
-
+    
     return 0;
+
 }

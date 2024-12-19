@@ -1,56 +1,45 @@
 #include<stdio.h>
+#include<stdlib.h>
 
-#define row 3
-#define col 3
-
-void printArr(int arr[row][col]){
-    for(int i=0;i<row;i++){
-        for(int j=0;j<col;j++){
-            printf("%d ",arr[i][j]);
-        }
-        printf("\n");
-    }
-}
-
-void matMul(int matrix1[row][col], int matrix2[row][col], int product[row][col]){
-    
-    for(int i=0;i<row;i++){
-        for(int j=0;j<col;j++){
-            product[i][j] = 0;
-            for(int k=0;k<col;k++){
-                product[i][j] += matrix1[i][k] * matrix2[k][j];
-            }
-        }
-    }
-
-}
+struct Employee{
+    char name[20];
+    char department[20];
+    int id;
+    int salary;
+}typedef emp;
 
 int main(){
 
-    int matrix1[row][col]={
-        {1,2,3},
-        {4,5,6},
-        {7,8,9}
-    };
+    int n;
+    printf("Enter number of employees: ");
+    scanf("%d",&n);
 
-    int matrix2[row][row]={
-        {10,11,12},
-        {13,14,15},
-        {16,17,18}
-    };
+    emp *ptr;
+    ptr = (emp*)malloc(n*sizeof(emp));
 
-    printf("Original matrix 1 \n");
-    printArr(matrix1);
+    for(int i=0;i<n;i++){
+        fflush(stdin);
+        printf("Enter name: ");
+        gets(ptr[i].name);
+        fflush(stdin);
+        printf("\nEnter department: ");
+        gets(ptr[i].department);
+        fflush(stdin);
+        printf("\nEnter id: ");
+        scanf("%d",&ptr[i].id);
+        fflush(stdin);
+        printf("\nEnter salary: ");
+        scanf("%d",&ptr[i].salary);
+    }
 
-    printf("\nOriginal matrix 2\n");
-    printArr(matrix2);
+    printf("\n\n\n\n");
 
-    int arr[row][col];
-
-    matMul(matrix1,matrix2,arr);
-
-    printf("\n\n\nAfter multiplication\n");
-    printArr(arr);
+    for(int i=0;i<n;i++){
+        printf("Name: %s",ptr[i].name);
+        printf("\nName: %s",ptr[i].department);
+        printf("\nName: %d",ptr[i].id);
+        printf("\nName: %d",ptr[i].salary);
+    }
 
 
     return 0;

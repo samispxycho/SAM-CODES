@@ -1,42 +1,43 @@
 #include<stdio.h>
-
-#define row 3
-#define col 3
-
-void transpose(int matrix[row][col], int arr[row][col]){
-    
-    for(int i=0;i<row;i++){
-        for(int j=0;j<col;j++){
-            arr[j][i] = matrix[i][j];
-        }
-    }
-
-}
-
-void printArr(int matrix[row][col]){
-    for(int i=0;i<row;i++){
-        for(int j=0;j<col;j++){
-            printf("%d ",matrix[i][j]);
-        }
-        printf("\n");
-    }
-}
+#include<stdlib.h>
 
 int main(){
 
-    int matrix[row][col]={
-        {1,2,3},
-        {4,5,6},
-        {7,8,9}
-    };
+    int *ptr;
+    ptr=(int *)malloc(4);
+    *ptr = 10;
+    printf("%d",*ptr);
 
-    int arr[row][col];
 
-    printArr(matrix);
-    printf("\n\n\n\n\n");
-    transpose(matrix,arr);
-    printArr(arr);
+    int *ptr1;
+    ptr1 =(int *)calloc(5,4);
+    *(ptr+0) = 100;
+    *(ptr+1) = 200;
+    *(ptr+2) = 300;
+    *(ptr+3) = 400;
+    *(ptr+4) = 500;
+    printf("\n%d",*(ptr+0));
 
+    int *ptr2;
+    ptr2 =(int *)malloc(4);
+    *ptr = 100;
+    
+    double *ptr3;
+    ptr3 = realloc(ptr,10);
+
+
+    int *ptr4;
+    ptr4 = (int*)malloc(4);
+    printf("Enter a value: ");
+    scanf("%d",ptr4);
+
+    printf("%d",*ptr4);
+
+    free(ptr);
+    free(ptr1);
+    free(ptr2);
+    free(ptr3);
+    free(ptr4);
 
     return 0;
 }

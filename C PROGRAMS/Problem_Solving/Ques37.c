@@ -1,43 +1,29 @@
 #include<stdio.h>
-#include<stdlib.h>
+#include<string.h>
 
 int main(){
 
-    int *ptr;
-    ptr=(int *)malloc(4);
-    *ptr = 10;
-    printf("%d",*ptr);
+    char str1[]="Hello world";
+    char str2[]="world";
 
+    for(int i=0;i<=strlen(str1)-strlen(str2);i++){
 
-    int *ptr1;
-    ptr1 =(int *)calloc(5,4);
-    *(ptr+0) = 100;
-    *(ptr+1) = 200;
-    *(ptr+2) = 300;
-    *(ptr+3) = 400;
-    *(ptr+4) = 500;
-    printf("\n%d",*(ptr+0));
+        int found=1;
+        for(int j=0;j<strlen(str2);j++){
+            if(str1[i+j] != str2[j]){
+                found = 0;
+                break;
+            }
+        }
+        
+        if(found == 1){
+            printf("String found at index %d",i);
+            return 0;
+        }
+    }
 
-    int *ptr2;
-    ptr2 =(int *)malloc(4);
-    *ptr = 100;
+    printf("Not found");
     
-    double *ptr3;
-    ptr3 = realloc(ptr,10);
-
-
-    int *ptr4;
-    ptr4 = (int*)malloc(4);
-    printf("Enter a value: ");
-    scanf("%d",ptr4);
-
-    printf("%d",*ptr4);
-
-    free(ptr);
-    free(ptr1);
-    free(ptr2);
-    free(ptr3);
-    free(ptr4);
-
     return 0;
+
 }
