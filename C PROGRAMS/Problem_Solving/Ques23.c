@@ -17,7 +17,7 @@ int main(){
     //input static data into the file-character by character
     char str[]="The one piece is real\n";
     for(int i=0;i<strlen(str);i++){
-        fputc(str[i],fp);
+        fputc(str[i],fp);       
     }
 
     //input dynamic data into the file-character by character

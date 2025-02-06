@@ -2,7 +2,7 @@
 #include<string.h>
 int main(){
 
-    char str[]="abc";
+    char str[]="sameer upadhyay";
     char arr[26]={0};
 
     for(int i=0;i<strlen(str);i++){
@@ -12,8 +12,8 @@ int main(){
 
     for(int i=0;i<26;i++){
         if(arr[i]!=0){
-            int ch = i + 'a';
-            printf("\nFrequency of %c is %d",ch, arr[i]);
+            char ch = i + 'a';
+            printf("Count of %c is %d\n",ch,arr[i]);
         }
     }
 

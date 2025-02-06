@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>Document</title>
+    <script>
+        function fontChange() {
+            var num = prompt("Enter a number: ");
+            var displayElement = document.createElement("div"); // Create a new div element
+            displayElement.textContent = num; // Set the entered number as the text
+            displayElement.style.fontSize = "40px"; // Change the font size of the text
+            document.body.appendChild(displayElement); // Add the div to the body
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="Click" onclick="fontChange()" />
+</body>
+</html>

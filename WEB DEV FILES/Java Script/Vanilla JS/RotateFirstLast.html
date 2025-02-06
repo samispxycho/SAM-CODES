@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>Document</title>
+    <script>
+        function rotate(){
+
+            var num = parseInt(prompt("Enter a number: "));
+            var str = num.toString();
+            var len=str.length;
+
+            var firstDigit = str[0];
+            var lastDigit = str[len-1];
+            var middle = str.slice(1,len-1);
+
+            var rotatedNumber = parseInt(lastDigit+middle+firstDigit);
+
+            alert(rotatedNumber);
+            
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="click" onclick="rotate()"/>
+</body>
+</html>

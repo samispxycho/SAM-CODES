@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>Document</title>
+
+    <script>
+
+        function Window(){
+            const win = window.open('','','width=300','height=400');
+            win.alert("This is a new window");
+
+            const winconfirm = win.confirm("Do you want to close the new window?");
+            if(winconfirm){
+                win.close();
+            }
+
+        }
+        
+
+    </script>
+
+</head>
+<body>
+   
+    <input type="button" value="New Window" onclick="Window()"/>
+
+</body>
+</html>

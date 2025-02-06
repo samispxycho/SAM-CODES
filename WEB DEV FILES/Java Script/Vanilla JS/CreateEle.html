@@ -1,0 +1,20 @@
+<html>
+<head>
+    <title>Document</title>
+    <script>
+        function createEle(){
+            var tag = document.getElementById("str").value;
+
+            var ele = document.createElement(tag);
+            var text = document.createTextNode("This is content");    
+            ele.appendChild(text);
+
+            document.body.appendChild(ele);
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="str" placeholder="Enter a tagname"/>
+    <input type="button" value="click" onclick="createEle()"/>
+</body>
+</html>
