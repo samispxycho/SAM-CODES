@@ -8,58 +8,51 @@ struct list{
 
 int main(){
 
-    struct list *present=NULL, *left=NULL;
+    struct list *left=NULL;
+    struct list *present=NULL;
+    struct list *temp=NULL;
+
     int count=0;
-
     int choice;
-
     do{
-        printf("\n1: Click 1 to add a new List\n2: Click 2 to display\n3: Count number of nodes\n4: Exit\n");
+        printf("\nEnter 1 to insert\nEnter 2 to display\nEnter 3 to count\nEnter 4 to delete last\nEnter 5 to exit\n");
         printf("\nEnter your choice: ");
         scanf("%d",&choice);
 
         switch(choice){
-            
             case 1:
-                present=(struct list *)malloc(sizeof(struct list));
+                present=(struct list*)malloc(sizeof(struct list));
                 if(present!=NULL){
                     int ele;
-                    printf("Enter the data: ");
+                    printf("Enter element to insert: ");
                     scanf("%d",&ele);
 
+                    count++;
                     present->data=ele;
-                    present->next=NULL;
-
-                    if(left==NULL){
-                        left=present;
-                    }else{
-                        present->next=left;
-                        left=present;
-                    }
+                    present->next=left;
+                    left=present;
                 }
-                count+=1;
-                printf("Element entered\n");
                 break;
-            
             case 2:
-                present=left;
                 while(present!=NULL){
-                    printf("%d->", present->data);
+                    printf("%d ",present->data);
                     present=present->next;
                 }
-                printf("NULL\n");
                 break;
-            
             case 3:
-                printf("Number of nodes: %d\n",count);
+                printf("Count is: %d",count);
                 break;
-            
             case 4:
-                exit(1);
-            
+                present=left;
+                temp=present;
+                present=present->next;
+                left=left->next;
+                free(temp);
+                count--;
+                break;
         }
 
-    }while(choice<=4);
+    }while(choice<=5);
 
     return 0;
 }
