@@ -34,6 +34,7 @@ int main(){
                 }
                 break;
             case 2:
+                present=left;
                 while(present!=NULL){
                     printf("%d ",present->data);
                     present=present->next;
