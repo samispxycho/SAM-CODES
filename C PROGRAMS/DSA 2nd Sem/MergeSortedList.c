@@ -1,107 +1,96 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-typedef struct node {
+typedef struct Node{
     int data;
-    struct node* next;
+    struct Node *next;
 }Node;
 
-Node* createNode(int data){
+Node *createNode(int val){
     Node *temp = (Node*)malloc(sizeof(Node));
-    temp->data = data;
+    temp->data = val;
     temp->next = NULL;
     return temp;
 }
 
-void insertSorted(Node** head,int val){
-
+void insertSorted(Node **head, int val){
     Node *newNode = createNode(val);
 
-    if(*head == NULL || (*head)->data == val){
+    if (*head == NULL || (*head)->data > val) {
         newNode->next = *head;
         *head = newNode;
         return;
     }
 
-    Node* current = *head;
-    while(current->next != NULL && current->next->data < val){
-        current = current->next;
-     
+    Node *curr = *head;
+    while (curr->next != NULL && curr->next->data < val) {
+        curr = curr->next;
     }
-       newNode->next = current->next;
-        current->next = newNode;
+
+    newNode->next = curr->next;
+    curr->next = newNode;
 }
 
-Node* mergeList(Node* L1, Node* L2){
-    if(!L1) return L2;
-    if(!L2) return L1;
+Node *mergeList(Node *list1, Node *list2){
+    if (!list1) return list2;
+    if (!list2) return list1;
 
-    if(L1->data < L2->data){
-        L1->next = mergeList(L1->next,L2);
-        return L1;
-    }
-    else{
-        L2->next = mergeList(L1 , L2->next);
-        return L2;
+    if (list1->data < list2->data) {
+        list1->next = mergeList(list1->next, list2);
+        return list1;
+    } else {
+        list2->next = mergeList(list1, list2->next);
+        return list2;
     }
 }
 
-void printList(Node* list){
-    while(list !=NULL){
-        printf(" %d -> ",list->data);
-        list = list->next;
+void printList(Node *head){
+    while (head != NULL) {
+        printf("%d -> ", head->data);
+        head = head->next;
     }
-    printf(" NULL \n");
+    printf("NULL\n");
 }
 
 int main(){
-    Node *List1 = NULL, *List2 = NULL, *List3 = NULL;
-    int ch,val;
+    Node *list1 = NULL;
+    Node *list2 = NULL;
+    Node *list3 = NULL;
 
-    do{
-        printf("\n1. Enter element in Linked List 1\n2. Display Linked List 1\n3. Enter element in Linked List 2\n4. Display Linked List 2\n5.Merge Linked List 1 and 2\n6. Display Linked List 3\n7. Exit\nEnter your choice = ");
+    int ch, val;
 
-        scanf("%d",&ch);
+    do {
+        printf("\n1. Insert into List 1\n2. Insert into List 2\n3. Merge Lists\n4. Display Lists\n5. Exit\nEnter your choice: ");
+        scanf("%d", &ch);
 
-        switch(ch){
+        switch (ch) {
             case 1:
-                printf("Enter element to insert = ");
-                scanf("%d",&val);
-
-                insertSorted(&List1,val);
+                printf("Enter value to insert into List 1: ");
+                scanf("%d", &val);
+                insertSorted(&list1, val);
                 break;
 
             case 2:
-                printf("\nList 1 = ");
-                printList(List1);
+                printf("Enter value to insert into List 2: ");
+                scanf("%d", &val);
+                insertSorted(&list2, val);
                 break;
-            
-            case 3:
-                printf("Enter element to insert = ");
-                scanf("%d",&val);
 
-                insertSorted(&List2,val);
+            case 3:
+                list3 = mergeList(list1, list2);
+                printf("Lists merged into List 3.\n");
                 break;
 
             case 4:
-                printf("\nList 2 = ");
-                printList(List2);
-                break;
-
-            case 5:
-                List3 = mergeList(List1,List2);
-                printf("List 1 and List 2 merged successfully\n");
-                break;
-
-            case 6:
-            printf("merged List = ");
-            printList(List3);
-            break;
-
-            case 7:
+                printf("List 1: ");
+                printList(list1);
+                printf("List 2: ");
+                printList(list2);
+                printf("Merged List 3: ");
+                printList(list3);
                 break;
         }
+    } while (ch != 5);
 
-
-    }while(ch!=7);
+    return 0;
 }
