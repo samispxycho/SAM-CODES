@@ -13,7 +13,7 @@ void enqueue(int queue[],int *front, int *rear){
 
     *rear=(*rear+1)%MAX;
     queue[*rear]=ele;
-
+    
     if(*front==-1)*front=0;
 }
 
@@ -46,7 +46,7 @@ void peek(int queue[],int front){
     if(front==-1){
         printf("Queue is empty\n");
         return;
-    }
+    }   
     printf("Peeked element is: %d\n",queue[front]);
 }
 
