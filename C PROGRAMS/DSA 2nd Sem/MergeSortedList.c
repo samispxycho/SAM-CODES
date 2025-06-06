@@ -6,91 +6,83 @@ typedef struct Node{
     struct Node *next;
 }Node;
 
-Node *createNode(int val){
-    Node *temp = (Node*)malloc(sizeof(Node));
-    temp->data = val;
-    temp->next = NULL;
+Node *createNode(int ele){
+    Node *temp=NULL;
+    temp=(Node*)malloc(sizeof(Node));
+    temp->data=ele;
+    temp->next=NULL;
     return temp;
 }
 
-void insertSorted(Node **head, int val){
-    Node *newNode = createNode(val);
+void insertSorted(Node **head,int ele){
+    Node *newNode=createNode(ele);
 
-    if (*head == NULL || (*head)->data > val) {
-        newNode->next = *head;
-        *head = newNode;
+    if(*head==NULL || ele < (*head)->data){
+        newNode->next=*head;
+        *head=newNode;
         return;
     }
 
-    Node *curr = *head;
-    while (curr->next != NULL && curr->next->data < val) {
-        curr = curr->next;
+    Node *curr=*head;
+    while(curr->next!=NULL && curr->next->data < ele){
+        curr=curr->next;
     }
-
-    newNode->next = curr->next;
-    curr->next = newNode;
+    newNode->next=curr->next;
+    curr->next=newNode;
 }
 
-Node *mergeList(Node *list1, Node *list2){
-    if (!list1) return list2;
-    if (!list2) return list1;
+Node *mergeList(Node *list1,Node *list2){
+    if(!list1)return list2;
+    if(!list2)return list1;
 
-    if (list1->data < list2->data) {
-        list1->next = mergeList(list1->next, list2);
+    if(list1->data < list2->data){
+        list1->next=mergeList(list1->next,list2);
         return list1;
-    } else {
-        list2->next = mergeList(list1, list2->next);
+    }else{
+        list2->next=mergeList(list1,list2->next);
         return list2;
     }
+
 }
 
-void printList(Node *head){
-    while (head != NULL) {
-        printf("%d -> ", head->data);
-        head = head->next;
+void display(Node *head){
+    while(head!=NULL){
+        printf("%d",head->data);
+        head=head->next;
     }
-    printf("NULL\n");
 }
 
 int main(){
-    Node *list1 = NULL;
-    Node *list2 = NULL;
-    Node *list3 = NULL;
 
-    int ch, val;
+    Node *list1=NULL;
+    Node *list2=NULL;
+    Node *sorted=NULL;
 
-    do {
-        printf("\n1. Insert into List 1\n2. Insert into List 2\n3. Merge Lists\n4. Display Lists\n5. Exit\nEnter your choice: ");
-        scanf("%d", &ch);
+    int ele;int ele2;
 
-        switch (ch) {
+    int ch;
+    do{
+        printf("Enter 1 to insert in list1\nEnter 2 to insert in list 2\nEnter 3 to merge the lists\nEnter 4 to display the list\n");
+        scanf("%d",&ch);
+        switch(ch){
             case 1:
-                printf("Enter value to insert into List 1: ");
-                scanf("%d", &val);
-                insertSorted(&list1, val);
+                printf("Enter element to enter: ");
+                scanf("%d",&ele);
+                insertSorted(&list1,ele);
                 break;
-
             case 2:
-                printf("Enter value to insert into List 2: ");
-                scanf("%d", &val);
-                insertSorted(&list2, val);
+                printf("Enter element to enter: ");
+                scanf("%d",&ele2);
+                insertSorted(&list2,ele2);
                 break;
-
             case 3:
-                list3 = mergeList(list1, list2);
-                printf("Lists merged into List 3.\n");
+                sorted=mergeList(list1,list2);
                 break;
-
             case 4:
-                printf("List 1: ");
-                printList(list1);
-                printf("List 2: ");
-                printList(list2);
-                printf("Merged List 3: ");
-                printList(list3);
+                display(sorted);
                 break;
         }
-    } while (ch != 5);
+    }while(ch<=4);
 
     return 0;
 }
