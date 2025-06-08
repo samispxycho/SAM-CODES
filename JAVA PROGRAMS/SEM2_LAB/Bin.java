@@ -1,24 +1,18 @@
-import java.util.Scanner;
+package SEM2_LAB;
+import java.awt.*;
 
-class ThisIsWrong extends Exception{
-    ThisIsWrong(String msg){
-        super(msg);
+public class Bin extends Frame{
+
+    Bin(){
+        setSize(500,500);
+        setVisible(true);
     }
-}
 
-public class Bin {
+    public void paint(Graphics g){
+        g.drawString("AWT JAVA",250,250);
+    }
+
     public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-
-        try{
-            String name;
-            name=sc.nextLine();
-            String upper=name.toUpperCase();
-            if(!name.equals(upper)){
-                throw new ThisIsWrong("Enter name in upper case only");
-            }
-
-        }
-
+        new Bin();
     }
 }
