@@ -1,7 +1,6 @@
 package SEM2_LAB;
 import javax.swing.*;
 import java.awt.event.*;
-import java.lang.reflect.Method;
 
 public class Swings_Ques21 extends JFrame implements ItemListener{
  
