@@ -20,7 +20,7 @@ class GraphUsingList{
 
     void display(){
         for(int i=0;i<graph.size();i++){
-            System.out.println("\n"+i+" node is connected to: "+graph.get(i));
+            System.out.println(i+" node is connected to: "+graph.get(i));
         }
     }
 
