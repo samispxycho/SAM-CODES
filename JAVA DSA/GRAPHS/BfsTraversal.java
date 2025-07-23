@@ -1,63 +1,66 @@
 package GRAPHS;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class BfsTraversal {
+class BfsTraversalClass{
 
-    static ArrayList<Integer> bfs(ArrayList<ArrayList<Integer>>adj){
+    static ArrayList<Integer> bfs(ArrayList<ArrayList<Integer>> list){
 
-        ArrayList<Integer>al=new ArrayList<>();
-        boolean visited[]=new boolean[adj.size()];
-        Queue<Integer>queue=new LinkedList<>();
+        ArrayList<Integer> al = new ArrayList<>();
+        Queue<Integer>queue = new LinkedList<>();
+        boolean visited[] = new boolean[list.size()];
 
-        visited[0]=true;
         queue.add(0);
+        visited[0] = true;
 
         while(!queue.isEmpty()){
-            int node=queue.peek();
-            queue.remove();
+
+            int node = queue.poll();
             al.add(node);
 
-            for(int neighbour:adj.get(node)){
+            for(int neighbour :  list.get(node)){
                 if(!visited[neighbour]){
-                    visited[neighbour]=true;
+                    visited[neighbour] = true;
                     queue.add(neighbour);
                 }
             }
-
         }
 
         return al;
+
     }
 
+}
+
+public class BfsTraversal {
     public static void main(String[] args) {
         
-        ArrayList<ArrayList<Integer>>adj=new ArrayList<>();
-        int vertices = 5;
+        ArrayList<ArrayList<Integer>> graph = new ArrayList<>();
+        int nodes = 5;
 
-        for (int i = 0; i < vertices; i++) {
-            adj.add(new ArrayList<>());
+        for(int i=0;i<nodes;i++){
+            graph.add(new ArrayList<>());
         }
 
-        adj.get(0).add(2);
-        adj.get(2).add(0);
+        graph.get(0).add(2);
+        graph.get(2).add(0);
 
-        adj.get(2).add(4);
-        adj.get(4).add(2);
+        graph.get(2).add(4);
+        graph.get(4).add(2);
 
-        adj.get(0).add(3);
-        adj.get(3).add(0);
+        graph.get(0).add(3);
+        graph.get(3).add(0);
 
-        adj.get(0).add(1);
-        adj.get(1).add(0);
+        graph.get(0).add(1);
+        graph.get(1).add(0);
 
         ArrayList<Integer>al=new ArrayList<>();
-        al=bfs(adj);
+        al = BfsTraversalClass.bfs(graph);
 
-        System.out.println();
-        for(int ele:al)System.out.print(ele+" ");
+        for(int ele:al){
+            System.out.println(ele+" ");
+        }
 
     }
 }

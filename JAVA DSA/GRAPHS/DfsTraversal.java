@@ -6,14 +6,14 @@ public class DfsTraversal {
 
     static void dfsT(int node,ArrayList<ArrayList<Integer>>adj,boolean visited[],ArrayList<Integer>al){
 
-        visited[node]=true;
-        al.add(node);
+       visited[node] = true;
+       al.add(node);
 
-        for(int neighbour:adj.get(node)){
-            if(!visited[neighbour]){
-                dfsT(neighbour, adj, visited, al);
-            }
+       for(int neighbour:adj.get(node)){
+        if(!visited[neighbour]){
+            dfsT(neighbour,adj,visited,al);
         }
+       }
 
     }
 
@@ -38,13 +38,15 @@ public class DfsTraversal {
         adj.get(0).add(1);
         adj.get(1).add(0);
 
-        ArrayList<Integer>al=new ArrayList<>();
-        boolean visited[]=new boolean[adj.size()];
+       ArrayList<Integer>al=new ArrayList<>();
+       boolean visited[] = new boolean[adj.size()];
 
-        dfsT(0,adj,visited,al);
+       dfsT(0,adj,visited,al);
 
-        System.out.println();
-        for(int ele:al)System.out.print(ele+" ");
+       System.out.println();
+       for(int ele:al){
+        System.out.print(ele+" ");
+       }
 
     }
 }
