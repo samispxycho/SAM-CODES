@@ -1,9 +1,8 @@
-package Graphs;
+package GRAPHS;
 
-import java.util.ArrayList;
-import java.util.Stack;
+import java.util.*;
 
-public class TopoSortDFS {
+public class TopoSortDfs {
 
     public static void dfs(int i, boolean[] visited, Stack<Integer> stack, ArrayList<ArrayList<Integer>> adjList) {
         visited[i] = true;
