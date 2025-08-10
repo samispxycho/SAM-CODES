@@ -16,7 +16,7 @@ public class TrieImplementation {
 
         Node get(char ch) {
             return arr[ch - 'a'];
-        }
+        }    
 
     }
 
