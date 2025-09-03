@@ -1,7 +1,7 @@
 package Dynamic_Programming;
 import java.util.Arrays;
 
-public class House_Robber2_M {
+public class HouseRobber2_M {
 
     // Memoization way
     public static int robMemo(int[] nums) {
