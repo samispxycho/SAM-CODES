@@ -1,6 +1,6 @@
 package Dynamic_Programming;
 
-public class HouseRobber_M {
+public class HouseRobber {
 
     // Memoization way
     public static int robMemo(int[] nums) {

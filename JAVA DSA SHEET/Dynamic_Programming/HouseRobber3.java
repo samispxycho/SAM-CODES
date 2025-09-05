@@ -1,6 +1,6 @@
 package Dynamic_Programming;
 
-public class HouseRobber3_M {
+public class HouseRobber3 {
 
     static class TreeNode {
         int val;
