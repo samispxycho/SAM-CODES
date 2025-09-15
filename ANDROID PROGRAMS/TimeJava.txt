@@ -1,0 +1,53 @@
+package com.example.clock;
+
+import android.app.TimePickerDialog;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.TimePicker;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import java.util.Calendar;
+
+public class MainActivity extends AppCompatActivity {
+
+    TextView tv;
+    Button btn;
+
+    int hour,min;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+
+        tv = findViewById(R.id.tv);
+        btn = findViewById(R.id.btn);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Calendar c = Calendar.getInstance();
+
+                hour = c.get(Calendar.HOUR_OF_DAY);
+                min = c.get(Calendar.MINUTE);
+
+                TimePickerDialog tpd = new TimePickerDialog(MainActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        tv.setText("Selected time: "+hourOfDay+":"+minute);
+                    }
+                },hour,min,true);
+                tpd.show();
+            }
+        });
+    }
+}
