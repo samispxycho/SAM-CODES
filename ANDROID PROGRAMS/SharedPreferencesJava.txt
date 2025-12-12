@@ -1,0 +1,60 @@
+package com.example.myapplication;
+
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText et;
+    Button save, show;
+    TextView tv;
+
+    SharedPreferences sp;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+
+        et = findViewById(R.id.et);
+        save = findViewById(R.id.save);
+        show = findViewById(R.id.show);
+        tv = findViewById(R.id.tv);
+
+        sp = getSharedPreferences("storage_file", MODE_PRIVATE); //create file to store data
+
+        save.setOnClickListener(new View.OnClickListener(){
+           public void onClick(View view){
+
+               String name = et.getText().toString();
+
+               SharedPreferences.Editor editor = sp.edit();    //create an editor for that file
+               editor.putString("username",name);              //write data into file
+               editor.apply();                                 //save file
+
+               Toast.makeText(MainActivity.this, "Content Saved successfully", Toast.LENGTH_SHORT).show();
+           }
+        });
+
+        show.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = sp.getString("username", "NO USERNAME FOUND");
+                tv.setText(name);
+            }
+        });
+
+    }
+}
