@@ -1,63 +1,53 @@
 #include<stdio.h>
 
-void merge(int arr[],int l,int m,int r){
-
-    int n1 = m-l+1;
-    int n2 = r-m;
-
-    int L[n1]; int R[n2];
-
-    for(int i=0;i<n1;i++){
-        L[i] = arr[l+i];
-    }
-
-    for(int j=0;j<n2;j++){
-        R[j] = arr[m+1+j];
-    }
-
-    int i=0; int j=0; int k=l;
-
-    while(i<n1 && j<n2){
-        if(L[i] <= R[j]){
-            arr[k] = L[i];
-            k++; i++;
+void merge(int arr[], int low, int mid, int high){
+    int temp[100];
+    int i=low;
+    int j = mid+1;
+    
+    int index=low;
+    
+    while(i<=mid && j<=high){
+        if(arr[i] < arr[j]){
+            temp[index++] = arr[i++];
         }else{
-            arr[k] = R[j];
-            k++; j++;
+            temp[index++] = arr[j++];
         }
     }
-
-    while(i<n1){
-        arr[k] = L[i];
-        k++; i++;
+    
+    while(i<=mid){
+        temp[index++] = arr[i++];
     }
-
-    while(j<n2){
-        arr[k]=R[j];
-        k++;j++;
+    
+    while(j<=high){
+        temp[index++] = arr[j++];
     }
-
+    
+    for(int x=low;x<=high;x++){
+        arr[x] = temp[x];
+    }
+    
 }
 
-void mergeSort(int arr[],int l,int r){
-    if(l<r){
-        int m = (l+r)/2;
-        mergeSort(arr,l,m);
-        mergeSort(arr,m+1,r);
-        merge(arr,l,m,r);
+void mergeSort(int arr[], int low, int high){
+    if(low < high){
+        int mid = (low + high)/2;
+        mergeSort(arr, low, mid);
+        mergeSort(arr, mid+1, high);
+        
+        merge(arr, low, mid, high);
     }
 }
 
-int main(){
+int main() {
+    int arr[] = {30, 10, 50, 20, 40};
+    int n = 5;
 
-    int arr[] = {10,9,8,7,6,5,4,3,2,1};
-    int n = 10;
+    mergeSort(arr, 0, n - 1);
 
-    mergeSort(arr,0,n-1);
-
-    for(int i=0;i<n;i++){
-        printf("%d ",arr[i]);
-    }
+    printf("Sorted array: ");
+    for(int i = 0; i < n; i++)
+        printf("%d ", arr[i]);
 
     return 0;
 }
